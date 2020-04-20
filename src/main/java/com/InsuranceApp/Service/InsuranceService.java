@@ -14,44 +14,37 @@ import com.InsuranceApp.repo.InsuranceRepository;
 public class InsuranceService {
 
 	@Autowired
-	InsuranceRepository repo;
+	InsuranceRepository insuranceRepo;
 
 	public Plan insertPlan(Plan plan) {
-
-		return repo.saveAndFlush(plan);
+		return insuranceRepo.saveAndFlush(plan);
 
 	}
 
 	public List<Plan> getAllPlan() {
-
-		return repo.findAll();
+		return insuranceRepo.findAll();
 	}
 
 	public Plan getPlanById(Integer plan_Id) {
-
-		return repo.getOne(plan_Id);
+		return insuranceRepo.getOne(plan_Id);
 	}
 
 	public void deletePlan(int plan_id) {
-
-		repo.deleteById(plan_id);
+		insuranceRepo.deleteById(plan_id);
 	}
 
 	public Plan updatePlan(Plan plan) {
-
-		return repo.save(plan);
+		return insuranceRepo.saveAndFlush(plan);
 
 	}
 
 	public void update(Plan plan, int plan_id) {
-
-		repo.save(plan);
+		insuranceRepo.saveAndFlush(plan);
 
 	}
 
 	public Plan checkPlan(@Min(1) int plan_id) {
-		
-		return repo.getOne(plan_id);
+		return insuranceRepo.getOne(plan_id);
 	}
 
 }
